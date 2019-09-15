@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if & each</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="seen">이제 나를 볼 수 있어요</p>
+    <!-- 콘솔창에 app.seen = false를 입력하면 메세지가 숨어요 -->
+</div>
+<div id="app2">
+    <li v-for="todo in todos">
+        {{todo.text}}
+    </li>
+    <!-- 콘솔창에 app2.todos.push({text: 'new item'}}) 을 하면 아이템이 추가 되는걸 볼 수 있어요 -->
+</div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            seen: true
+        }
+    });
+    const app2 = new Vue({
+        el: '#app2',
+        data: {
+            todos: [
+                {text: 'JavaScript 배우기'},
+                {text: 'Vue 배우기'},
+                {text: '무언가 멋진 것을 만들기'}
+            ]
+        }
+    });
+</script>
+</html>

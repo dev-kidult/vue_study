@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>form handling</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">메시지 뒤집기</button>
+</div>
+<div id="app2">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '안녕하세요! Vue.js!'
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    });
+    const app2 = new Vue({
+        el: '#app2',
+        data: {
+            message: '안녕하세요 Vue!'
+        }
+    })
+</script>
+</html>
